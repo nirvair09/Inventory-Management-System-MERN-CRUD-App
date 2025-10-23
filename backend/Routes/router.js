@@ -26,3 +26,16 @@ router.post("/insertProduct",async(req,res)=>{
         console.log(error);
     }
 })
+
+
+//get data
+
+router.get('/product/:id',async(req,res)=>{
+    try {
+        const getProduct=await products.findById(req.params,id);
+        console.log(getProduct);
+        res.status(200).json(getProduct);
+    } catch (error) {
+        console.log(error);
+    }
+})
