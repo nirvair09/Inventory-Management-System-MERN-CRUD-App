@@ -39,3 +39,16 @@ router.get('/product/:id',async(req,res)=>{
         console.log(error);
     }
 })
+
+//edit data
+
+router.put('/updateProduct/:id',async(req,res)=>{
+
+    try {
+        const updateProducts = await products.findByIdAndUpdate(req.params.id,{ProductName,ProductPrice,ProductBarCode},{new:true});
+        console.log("Updated");
+        res.status(201).json(updateProducts);
+    } catch (error) {
+        console.log(error);
+    }
+})
