@@ -52,3 +52,21 @@ router.put('/updateProduct/:id',async(req,res)=>{
         console.log(error);
     }
 })
+
+
+
+//delete data
+
+router.delete('/deleteProduct/:id',async(req,res)=>{
+    try {
+        const deletProduct = await products.findByIdAndDelete(req.params.id);
+        console.log(deletProduct);
+        res.status(201).json(deletProduct);
+        
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
+module.exports = router;
